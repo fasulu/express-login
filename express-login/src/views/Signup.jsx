@@ -3,15 +3,21 @@ import axios from 'axios'
 
 const Signup = () => {
 
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password1, setPassword1] = useState("");
     const [password2, setPassword2] = useState("");
+    const [firstname, setFirstname] = useState("");
+    const [surname, setSurname] = useState("");
+    const [dateofbirth, setDateofbirth] = useState("");
 
     const signup = async () => {
 
-        console.log("username in state", username);
+        console.log("useremail in state", email);
         console.log("password1 in state", password1);
         console.log("password2 in state", password2);
+        console.log("prenom in state", firstname);
+        console.log("nom in state", surname);
+        console.log("dateofbirth in state", dateofbirth);
 
         const verifyBothPwd = password1 === password2
 
@@ -23,7 +29,7 @@ const Signup = () => {
 
                 console.log("both password match")
 
-                const response = await axios.post("http://localhost:8000/auth/signup", username, password2)
+                const response = await axios.post("http://localhost:8000/auth/signup", email, password2, firstname, surname, dateofbirth)
 
                 console.log(response)
 
@@ -43,16 +49,47 @@ const Signup = () => {
         <div className="card-body mp-3 offset-1">
 
             <div className="mb-3 row">
-                <label class="col-sm-2 col-form-label">Email</label>
+                <label className="col-sm-3 col-form-label">Email</label>
                 <div className="col-sm-10 mx-1">
                     <input className="form-control-plaintext"
                         type="text"
                         placeholder="email@example.com"
-                        onChange={(e) => setUsername(e.target.value)} />
+                        onChange={(e) => setEmail(e.target.value)} />
                 </div>
             </div>
+
             <div className="mb-3 row">
-                <label for="inputPassword" className="col-sm-2 col-form-label">Password</label>
+                <label className="col-sm-3 col-form-label">First name</label>
+                <div className="col-sm-10 mx-1">
+                    <input className="form-control"
+                        type="text"
+                        placeholder="Enter First Name"
+                        onChange={(e) => setFirstname(e.target.value)} />
+                </div>
+            </div>
+
+            <div className="mb-3 row">
+                <label className="col-sm-3 col-form-label">Surname</label>
+                <div className="col-sm-10 mx-1">
+                    <input className="form-control"
+                        type="text"
+                        placeholder="Enter Surname"
+                        onChange={(e) => setSurname(e.target.value)} />
+                </div>
+            </div>
+
+            <div className="mb-3 row">
+                <label className="col-sm-3 col-form-label">Date Of Birth</label>
+                <div className="col-sm-10 mx-1">
+                    <input className="form-control"
+                        type="text"
+                        placeholder="Enter Date of Birth"
+                        onChange={(e) => setDateofbirth(e.target.value)} />
+                </div>
+            </div>
+
+            <div className="mb-3 row">
+                <label className="col-sm-3 col-form-label">Password</label>
                 <div className="col-sm-10 mx-1">
                     <input className="form-control"
                         type="password"
@@ -60,8 +97,9 @@ const Signup = () => {
                         onChange={(e) => setPassword1(e.target.value)} />
                 </div>
             </div>
+
             <div className="mb-3 row">
-                <label for="inputPassword" className="col-sm-2 col-form-label">Confirm Password</label>
+                <label className="col-sm-3 col-form-label">Confirm Password</label>
                 <div className="col-sm-10 mx-1">
                     <input className="form-control"
                         type="password"
@@ -69,9 +107,10 @@ const Signup = () => {
                         onChange={(e) => setPassword2(e.target.value)} />
                 </div>
             </div>
+
             <div className="mb-3 row">
-                <div class="col-auto offset-8">
-                    <button class="btn btn-primary"
+                <div className="col-auto offset-8">
+                    <button className="btn btn-primary"
                         type="submit"
                         onClick={signup} >Submit</button>
                 </div>

@@ -6,14 +6,14 @@ const Admin = () => {
 
         <div className="card-body mp-3 offset-1">
 
-            <ol class="list-group list-group-numbered">
+            <ol className="list-group list-group-numbered">
 
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold badge bg-primary">here nom</div>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                        <div className="fw-bold badge bg-primary">here nom</div>
                     </div>
-                    <span class="rounded-pill mx-3">here prenom</span>
-                    <span class="rounded-pill">here age</span>
+                    <span className="rounded-pill mx-3">here prenom</span>
+                    <span className="rounded-pill">here age</span>
                 </li>
 
             </ol>

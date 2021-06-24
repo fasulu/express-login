@@ -1,26 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const Login = () => {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const login = async () => {
+
+        console.log("email entered ", email)
+        console.log("password entered", password)
+    }
 
     return (
 
         <div className="card-body mp-3 offset-1">
 
             <div className="mb-3 row">
-                <label class="col-sm-2 col-form-label">Email</label>
+                <label className="col-sm-3 col-form-label">Email</label>
                 <div className="col-sm-10 mx-1">
-                    <input type="text" readonly className="form-control-plaintext" id="staticEmail" placeholder="email@example.com" />
+                    <input id="staticEmail" className="form-control-plaintext"
+                        type="text"
+                        placeholder="email@example.com"
+                        onChange={(e) => setEmail(e.target.value)} />
                 </div>
             </div>
             <div className="mb-3 row">
-                <label for="inputPassword" className="col-sm-2 col-form-label">Password</label>
+                <label className="col-sm-3 col-form-label">Password</label>
                 <div className="col-sm-10 mx-1">
-                    <input type="password" className="form-control" id="inputPassword" placeholder="Enter Password" />
+                    <input id="inputPassword" className="form-control"
+                        type="password"
+                        placeholder="Enter Password"
+                        onChange={(e) => setPassword(e.target.value)} />
                 </div>
             </div>
             <div className="mb-3 row">
-                <div class="col-auto offset-8">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                <div className="col-auto offset-8">
+                    <button className="btn btn-primary"
+                        type="submit"
+                        onClick={login}
+                    >Submit</button>
                 </div>
             </div>
 
