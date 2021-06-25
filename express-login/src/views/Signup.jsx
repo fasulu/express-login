@@ -12,12 +12,20 @@ const Signup = () => {
 
     const signup = async () => {
 
-        console.log("useremail in state", email);
-        console.log("password1 in state", password1);
-        console.log("password2 in state", password2);
-        console.log("prenom in state", firstname);
-        console.log("nom in state", surname);
-        console.log("dateofbirth in state", dateofbirth);
+        // console.log("useremail in state", email);
+        // console.log("password1 in state", password1);
+        // console.log("password2 in state", password2);
+        // console.log("prenom in state", firstname);
+        // console.log("nom in state", surname);
+        // console.log("dateofbirth in state", dateofbirth);
+
+        const newUser = {
+            email: email,
+            password: password2,
+            firstname: firstname,
+            surname: surname,
+            dateofbirth: dateofbirth
+        }
 
         const verifyBothPwd = password1 === password2
 
@@ -29,7 +37,7 @@ const Signup = () => {
 
                 console.log("both password match")
 
-                const response = await axios.post("http://localhost:8000/auth/signup", email, password2, firstname, surname, dateofbirth)
+                const response = await axios.post("http://localhost:8000/signup", newUser)
 
                 console.log(response)
 
@@ -112,7 +120,8 @@ const Signup = () => {
                 <div className="col-auto offset-8">
                     <button className="btn btn-primary"
                         type="submit"
-                        onClick={signup} >Submit</button>
+                        onClick={signup}
+                    >Submit</button>
                 </div>
             </div>
         </div>

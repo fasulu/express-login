@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Signup from '../src/views/Signup';
 import Login from '../src/views/Login';
 import Admin from '../src/views/Admin';
+import getlistofusers from '../src/views/GetlistofUsers'
+import Logout from './views/Logout';
 
 function App() {
   return (
@@ -28,8 +30,13 @@ function App() {
                 </div>
               </div>
               <div className="col">
+                <div className="p-3 ">
+                <Link to="/getlistofusers">Users</Link>
+                </div>
+              </div>
+              <div className="col">
                 <div className="p-3">
-                <Link to="/login">Logout</Link>
+                <Link to="/logout">Logout</Link>
                 </div>
               </div>
             </div>
@@ -40,7 +47,8 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/admin" component={Admin} />
-          {/* <Route path="/signup" component={Signup} /> */}
+          <Route path="/getlistofusers" component={getlistofusers} />
+          <Route path="/logout" component={Logout} />
         </Switch>
       </BrowserRouter>
     </div>

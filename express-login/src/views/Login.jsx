@@ -10,6 +10,32 @@ const Login = () => {
 
         console.log("email entered ", email)
         console.log("password entered", password)
+
+        const loginUser = {
+            email: email,
+            password: password
+        }
+
+        try {
+
+            const response = await axios.post("http://localhost:8000/login", loginUser)
+            
+            const validToken = response.data.validToken;    // picking token from the response
+            const userID = response.data.userDetail._id;    // picking userID from the response     not working
+            const expires = response.data.tokenExpire;    // picking userID from the response
+
+            console.log("response.data.id", userID)
+            console.log("response.data.validToken", validToken)
+            console.log("response.data.expiresIn", expires)
+
+            window.localStorage.setItem("token", validToken);
+            window.localStorage.setItem("userID", userID);
+            window.localStorage.setItem("expiresIn", expires);
+
+
+        } catch (error) {
+            console.error("Error while verifying your information", error)
+        }
     }
 
     return (
